@@ -1,62 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
-import NoteForm from './components/NoteForm';
-import NoteList from './components/NoteList';
-import { getAllNotes, createNote } from './services/noteService';
-import { isAuthenticated, logout, getCredentials } from './services/authService';
+import Navbar from './components/Navbar';
+import NotesPage from './pages/NotesPage';
+import TodoPage from './pages/TodoPage';
+import { isAuthenticated } from './services/authService';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const [notes, setNotes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // Перевіряємо чи є збережені credentials
     if (isAuthenticated()) {
       setIsLoggedIn(true);
-      loadNotes();
     }
   }, []);
 
-  const loadNotes = async () => {
-    setIsLoading(true);
-    try {
-      const data = await getAllNotes();
-      setNotes(data);
-    } catch (error) {
-      console.error('Failed to load notes:', error);
-      // Якщо 401 - logout
-      if (error.response?.status === 401) {
-        handleLogout();
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleNoteCreated = async (content) => {
-    const newNote = await createNote(content);
-    setNotes([newNote, ...notes]);
-  };
-
   const handleLogin = () => {
     setIsLoggedIn(true);
-    loadNotes();
   };
 
   const handleRegister = () => {
     setIsLoggedIn(true);
     setShowRegister(false);
-    loadNotes();
   };
 
   const handleLogout = () => {
-    logout();
     setIsLoggedIn(false);
-    setNotes([]);
   };
 
   if (!isLoggedIn) {
@@ -73,25 +45,21 @@ function App() {
     );
   }
 
-  const { username } = getCredentials();
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>📝 Мої нотатки</h1>
-        <div className="user-info">
-          <span>Привіт, {username}!</span>
-          <button onClick={handleLogout} className="logout-button">
-            Вийти
-          </button>
-        </div>
-      </header>
-      
-      <main className="App-main">
-        <NoteForm onNoteCreated={handleNoteCreated} />
-        <NoteList notes={notes} isLoading={isLoading} />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar onLogout={handleLogout} />
+        
+        <main className="App-main">
+          <Routes>
+            <Route path="/notes" element={<NotesPage />} />
+            <Route path="/todos" element={<TodoPage />} />
+            <Route path="/" element={<Navigate to="/notes" replace />} />
+            <Route path="*" element={<Navigate to="/notes" replace />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
