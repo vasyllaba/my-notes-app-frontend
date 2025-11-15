@@ -27,6 +27,14 @@ function TodoItem({ todo, onToggle, onDelete }) {
 
       <div className="todo-content">
         <div className="todo-title">{todo.title}</div>
+        
+        {/* ← ДОДАНО показ опису */}
+        {todo.description && (
+          <div className="todo-description-text">
+            {todo.description}
+          </div>
+        )}
+        
         <div className="todo-date">
           {todo.completed 
             ? `Виконано: ${completedDate}`

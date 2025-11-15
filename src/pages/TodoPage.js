@@ -40,8 +40,8 @@ function TodoPage() {
     }
   };
 
-  const handleTodoCreated = async (title) => {
-    const newTodo = await createTodo(title);
+  const handleTodoCreated = async (title, description) => {
+    const newTodo = await createTodo(title, description);
     if (filter === 'all' || filter === 'active') {
       setTodos([newTodo, ...todos]);
     }

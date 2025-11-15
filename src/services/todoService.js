@@ -34,9 +34,9 @@ export const getAllTodos = async (filter = 'all') => {
 };
 
 // Створити новий TODO
-export const createTodo = async (title) => {
+export const createTodo = async (title, description = '') => {
   try {
-    const response = await apiClient.post('/todos', { title });
+    const response = await apiClient.post('/todos', { title, description });
     return response.data;
   } catch (error) {
     console.error('Error creating todo:', error);
