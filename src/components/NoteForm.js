@@ -28,7 +28,7 @@ function NoteForm({ onNoteCreated }) {
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Введіть вашу нотатку..."
+        placeholder="Введіть вашу нотатку...)"
         rows="5"
         disabled={isLoading}
       />
