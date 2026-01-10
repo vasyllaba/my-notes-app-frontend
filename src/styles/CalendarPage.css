@@ -1,0 +1,391 @@
+.calendar-page {
+  padding: 1.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Основна сітка */
+.main-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr 280px;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Карточки */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Кнопки */
+.add-btn, .add-btn-small {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.add-btn:hover, .add-btn-small:hover {
+  background: #5568d3;
+}
+
+.add-btn-small {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.stats-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.stats-btn:hover {
+  background: #e0e0e0;
+}
+
+/* ========== ШВИДКІ ЗАВДАННЯ ========== */
+.quick-tasks-panel {
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-tasks-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.quick-task {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quick-task:hover {
+  background: #f9f9f9;
+}
+
+.quick-task.completed span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.quick-task input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* ========== КАЛЕНДАР ========== */
+.calendar-panel {
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.calendar-nav h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.nav-arrow {
+  background: #f0f0f0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+}
+
+.nav-arrow:hover {
+  background: #e0e0e0;
+}
+
+.week-calendar {
+  flex: 1;
+  overflow: auto;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr);
+  gap: 1px;
+  background: #e0e0e0;
+  border: 1px solid #e0e0e0;
+}
+
+.day-header {
+  background: #f9f9f9;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.time-slot {
+  background: white;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #666;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calendar-cell {
+  background: white;
+  min-height: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-cell:hover {
+  background: #f9f9f9;
+}
+
+.task-block {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========== ЕПІКИ ========== */
+.epics-panel {
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.epics-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.epic-item {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.epic-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.epic-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s;
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* ========== ШВИДКІ ЗАПИСИ ========== */
+.quick-notes-panel textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.quick-notes-panel textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.saved-notes {
+  margin-top: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.saved-note {
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.note-date {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+/* ========== РЕФЛЕКСІЯ ========== */
+.reflection-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.form-row input,
+.form-row select {
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.time-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.range-value {
+  text-align: center;
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+/* ========== АДАПТИВНІСТЬ ========== */
+@media (max-width: 1400px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-tasks-panel,
+  .calendar-panel,
+  .epics-panel {
+    height: auto;
+  }
+  
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-page {
+    padding: 1rem;
+  }
+  
+  .week-grid {
+    font-size: 0.8rem;
+  }
+  
+  .day-header {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .time-slot {
+    font-size: 0.7rem;
+  }
+  
+  .time-inputs {
+    grid-template-columns: 1fr;
+  }
+}
