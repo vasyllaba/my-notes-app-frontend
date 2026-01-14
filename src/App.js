@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import CalendarPage from './pages/CalendarPage';
 import NotesPage from './pages/NotesPage';
 import TodoPage from './pages/TodoPage';
+import EpicsPage from './pages/EpicsPage';
 import { isAuthenticated } from './services/authService';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <main className="App-main">
           <Routes>
             <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/epics" element={<EpicsPage />} />
             <Route path="/notes" element={<NotesPage />} />
             <Route path="/todos" element={<TodoPage />} />
             <Route path="/" element={<Navigate to="/calendar" replace />} />

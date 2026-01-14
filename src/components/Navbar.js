@@ -25,6 +25,12 @@ function Navbar({ onLogout }) {
           📅 Календар
         </Link>
         <Link
+          to="/epics"
+          className={location.pathname === '/epics' ? 'active' : ''}
+        >
+          🎯 Епіки
+        </Link>
+        <Link
           to="/notes"
           className={location.pathname === '/notes' ? 'active' : ''}
         >
