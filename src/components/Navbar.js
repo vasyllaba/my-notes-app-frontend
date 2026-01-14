@@ -14,36 +14,24 @@ function Navbar({ onLogout }) {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h1>📊 Productivity Tracker</h1>
+        <h1>📝 MyNotes</h1>
       </div>
       
       <div className="navbar-links">
-        <Link
-          to="/calendar"
-          className={location.pathname === '/calendar' ? 'active' : ''}
-        >
-          📅 Календар
-        </Link>
-        <Link
-          to="/backlog"
-          className={location.pathname === '/backlog' ? 'active' : ''}
-        >
-          📋 Backlog
-        </Link>
-        <Link
-          to="/notes"
+        <Link 
+          to="/notes" 
           className={location.pathname === '/notes' ? 'active' : ''}
         >
-          📝 Записи
+          📝 Нотатки
         </Link>
-        <Link
-          to="/statistics"
-          className={location.pathname === '/statistics' ? 'active' : ''}
+        <Link 
+          to="/todos" 
+          className={location.pathname === '/todos' ? 'active' : ''}
         >
-          📈 Статистика
+          ✓ TODO
         </Link>
       </div>
-      
+
       <div className="navbar-user">
         <span>Привіт, {username}!</span>
         <button onClick={handleLogout} className="logout-button">
