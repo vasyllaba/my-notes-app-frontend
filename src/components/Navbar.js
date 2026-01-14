@@ -16,16 +16,22 @@ function Navbar({ onLogout }) {
       <div className="navbar-brand">
         <h1>📝 MyNotes</h1>
       </div>
-      
+
       <div className="navbar-links">
-        <Link 
-          to="/notes" 
+        <Link
+          to="/calendar"
+          className={location.pathname === '/calendar' ? 'active' : ''}
+        >
+          📅 Календар
+        </Link>
+        <Link
+          to="/notes"
           className={location.pathname === '/notes' ? 'active' : ''}
         >
           📝 Нотатки
         </Link>
-        <Link 
-          to="/todos" 
+        <Link
+          to="/todos"
           className={location.pathname === '/todos' ? 'active' : ''}
         >
           ✓ TODO
